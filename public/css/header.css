@@ -1,0 +1,45 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+.header {
+    background-color: #338bad;
+    height: 3rem;
+    align-items: center;
+
+}
+
+.header_list {
+    margin: 0px;
+    padding: 0rem;
+    display: flex;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.header_list-item {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    list-style: none;
+    justify-content: center;
+}
+
+.header_list-item a {
+    text-decoration: none;
+    color: aliceblue;
+
+
+
+}
+
+.header_list-item a:hover,
+.header_list-item a:active,
+
+
+.header_list-item a.active {
+    color: rgba(75, 29, 3, 0.37);
+}

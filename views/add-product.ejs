@@ -1,0 +1,30 @@
+<%- include('includes/head.ejs') %>
+
+    <link rel="stylesheet" href="/css/product-form.css">
+
+    </head>
+
+    <body>
+        <%- include('includes/navbar.ejs') %>
+
+
+
+            <div class="container">
+                <form action="/admin/add-product" method="post" class="myform-control">
+                    <div class="mb-3">
+                      <label for="itemName" class="form-label">Item Name</label>
+                      <input type="text" class="form-control" id="itemName" name="itemName">
+                    </div>
+                    <div class="mb-3">
+                      <label for="itemSize" class="form-label">Size</label>
+                      <input type="number" class="form-control" id="itemSize" name="itemSize">
+                    </div>
+                    
+                    <button type="submit" class="btn my-btn">Add</button>
+                  </form>
+            </div>
+                
+
+            
+
+<%- include('includes/end.ejs') %>

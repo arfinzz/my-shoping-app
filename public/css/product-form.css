@@ -1,0 +1,20 @@
+.my-btn:hover{
+    border: 1px solid #338bad;
+    width: 5rem;
+    color: #338bad;
+    background-color: #ffffff;
+}
+
+.my-btn{
+    border: 1px solid #ffffff;
+    width: 5rem;
+    color: #ffffff;
+    background-color: #338bad;
+}
+
+.myform-control{
+    width: 50%;
+    margin: auto;
+    font-weight: 400;
+    font-size: 1.15rem;
+}

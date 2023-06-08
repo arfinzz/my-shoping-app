@@ -1,0 +1,33 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body>
+    
+
+
+    <%- include('includes/navbar.ejs') %>
+
+    <div class="container">
+        <div class="row gy-3 my-3">
+            <% for(prod in products){ %>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card text-center">
+                    <img src="https://picsum.photos/500" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= products[prod].itemName %></h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+            </div>
+            <% } %>
+
+        </div>
+    </div>
+
+
+<%- include('includes/end.ejs') %>
+
+
+
+    
