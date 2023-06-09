@@ -4,30 +4,39 @@ const Cart=require('../models/cart');
 
 exports.displayHome=(req,res,next)=>{
     
-    Product.getProducts((prods)=>{
-        
-    res.render('shop/home',{title:"Home Page",products:prods,path:"/"});
-    });
+    Product.getProducts()
+    .then(([products])=>{
+        res.render('shop/home',{title:"Home Page",products:products,path:"/"});
+    })
+    .catch(err=>{
+        console.log(err);
+    })
     
 }
 
 exports.displayProducts=(req,res,next)=>{
     
-    Product.getProducts((prods)=>{
-        
-    res.render('shop/products',{title:"Products",products:prods,path:"/products"});
-    });
+    Product.getProducts()
+    .then(([products])=>{
+        res.render('shop/products',{title:"Products",products:products,path:"/products"});
+    })
+    .catch(err=>{
+        console.log(err);
+    })
     
 }
 
 
 exports.displayProduct=(req,res,next)=>{
     const prodId=req.params.prodId;
-    Product.getProductById(prodId,(prod)=>{
-        console.log(prod);
-        
-    res.render('shop/product-details',{title:prod.name,product:prod,path:"/products"});
-    });
+    Product.getProductById(prodId)
+    .then(([product])=>{
+       //console.log(product[0].name)
+        res.render('shop/product-details',{title:product.name,product:product[0],path:"/products"});
+    })
+    .catch(err=>{
+        console.log(err);
+    })
     
 }
 

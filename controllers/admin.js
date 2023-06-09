@@ -15,10 +15,13 @@ exports.getAddProduct=(req,res,next)=>{
 
 exports.displayProducts=(req,res,next)=>{
     
-    Product.getProducts((prods)=>{
-        
-    res.render('admin/products',{title:"Admin Products",products:prods,path:"/admin/products"});
-    });
+    Product.getProducts()
+    .then(([products])=>{
+        res.render('admin/products',{title:"Admin Products",products:products,path:"/admin/products"});
+    })
+    .catch(err=>{
+        console.log(err);
+    })
     
 }
 
@@ -26,16 +29,14 @@ exports.displayProducts=(req,res,next)=>{
 exports.deleteProduct=(req,res,next)=>{
     const idToDelete=req.params.prodId;
 
-    Product.deleteProductById(idToDelete,()=>{
-        Product.getProducts((prods)=>{
-        
-            res.render('admin/products',{title:"Admin Products",products:prods,path:"/admin/products"});
-            });
-
+    Product.deleteProductById(idToDelete)
+    .then(()=>{
+        res.redirect('/admin/products');
     })
-    
-    
-    
+    .catch(err=>{
+        console.log(err);
+    })
+  
 }
 
 

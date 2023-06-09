@@ -1,19 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-const rootDir = require('../utils/path');
+const db=require('../utils/database');
 
-const p = path.join(rootDir, 'data', 'products.json');
-
-const getProductsFromFile = (cb) => {
-    fs.readFile(p, (err, fileContent) => {
-        if (err) {
-            cb([]);
-        }
-        else {
-            cb(JSON.parse(fileContent));
-        }
-    })
-}
 
 module.exports = class Product {
     constructor(name,quantity,price,imageUrl,description) {
@@ -24,46 +10,23 @@ module.exports = class Product {
         this.description=description;
     }
 
-    save() {
-        this.id=Math.random().toString();
+    save(){
+        return db.execute('INSERT INTO products (name,price,quantity,description,imageUrl) VALUES (?,?,?,?,?)',
+        [this.name,this.price,this.quantity,this.description,this.imageUrl]);
+    }
 
-        getProductsFromFile((products) => {
-            products.push(this);
-            fs.writeFile(p, JSON.stringify(products), (err) => {
-                console.log(err);
-            })
-        })
-
-    
-        }
-
-    static getProducts(cb){
-    getProductsFromFile(cb);
+    static getProducts(){
+        return db.execute('SELECT * FROM products');
     }
 
 
-    static getProductById(id,cb){
-        getProductsFromFile((prods)=>{
-           const res=prods.find((prod)=>prod.id==id);
-          cb(res);
-        })
+    static getProductById(id){
+        return db.execute('SELECT * FROM products WHERE products.id=?',[id]);
     }
 
 
-    static deleteProductById(id,cb){
-        getProductsFromFile((prods)=>{
-          const indexToRemove=prods.findIndex((prod)=>prod.id==id);
-          //console.log(indexToRemove);
-          if(indexToRemove>-1)
-          {
-            prods.splice(indexToRemove,1);
-          }
-          fs.writeFile(p, JSON.stringify(prods), (err) => {
-            console.log(err);
-            cb();
-        })
-
-        })
+    static deleteProductById(id){
+       return db.execute('DELETE FROM products WHERE products.id=?',[id]);
     }
 
 
