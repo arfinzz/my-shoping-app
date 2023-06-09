@@ -1,6 +1,7 @@
 const express=require('express');
 
-const productsController=require('../controllers/products');
+const adminController=require('../controllers/admin');
+
 
 
 
@@ -9,8 +10,18 @@ const router=express.Router();
 
 
 
-router.post('/add-product',productsController.postAddProduct)
+router.post('/add-product',adminController.postAddProduct)
 
-router.get('/add-product',productsController.getAddProduct)
+router.get('/add-product',adminController.getAddProduct)
+router.get('/products',adminController.displayProducts)
+
+router.post('/editProduct/:prodId',adminController.postEditProduct)
+
+router.get('/editProduct/:prodId',adminController.getEditProduct)
+router.get('/deleteProduct/:prodId',adminController.deleteProduct)
+
+
+
+
 
 module.exports=router;

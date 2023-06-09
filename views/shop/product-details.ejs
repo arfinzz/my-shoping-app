@@ -1,0 +1,29 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../includes/navbar.ejs') %>
+
+
+   <div class="container">
+    <div class="card text-center" style="margin: auto; margin-top: 10px; width: 500px;">
+        <img src="<%= product.imageUrl%>" class="card-img-top" alt="<%= product.name%>">
+        <div class="card-body">
+          <h5 class="card-title"><%= product.name%></h5>
+          <div style="font-weight: 500;">
+            Price : &#8377 <%= product.price%>
+            
+          </div>
+          <div style="font-weight: 500;">
+            Quantity : <%= product.quantity%>
+          </div>
+
+          <p class="card-text"><%= product.description%></p>
+          
+          <a href="/addtocart/<%= product.id%>" class="btn btn-primary">Add to Cart</a>
+          <a href="/products" class="btn btn-primary">Go Back</a>
+        </div>
+      </div>
+   </div>
+
+<%- include('../includes/end.ejs') %>

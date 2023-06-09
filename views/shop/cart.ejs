@@ -1,0 +1,46 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/product-form.css">
+</head>
+
+<body>
+    
+
+
+    <%- include('../includes/navbar.ejs') %>
+
+    <div class="container mt-3">
+        
+            <% for(prod of products){ %>
+                <div class="row gy-3" >
+            <div class="col-10" style="margin: auto; margin-top: 20px;">
+                <div class="card mb-3" style="height: 70px;">
+                    <div class="row g-0">
+                      <div class="col-3 col-md-1">
+                        <img src="<%= prod.productDetails.imageUrl%>" class="img-fluid rounded-start" style="object-fit:cover;
+                        width:auto;
+                        height:70px" alt="<%= prod.productDetails.name%>">
+                      </div>
+                      <div class="col-8 col-md-11">
+                        <div class="card-body p-0">
+                          <h5 class="card-title"><%= prod.productDetails.name%></h5>
+                          Price : <%= prod.productDetails.price%>
+                          Quantity : <%= prod.qty%>
+                          <a href="/addMoreToCart/<%= prod.productDetails.id %>"><button class="my-btn" style="width: auto; border-radius: 5px; ">Add more</button></a>
+                          <a href="/deleteFromCart/<%= prod.productDetails.id %>"><button class="my-btn" style="width: auto; border-radius: 5px;">Remove</button></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+            <% } %>
+
+        
+    </div>
+
+
+<%- include('../includes/end.ejs') %>
+
+
+
+    
