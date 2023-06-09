@@ -2,6 +2,8 @@ const express=require('express');
 const path=require('path');
 const bodyParser=require('body-parser');
 
+const db=require('./utils/database');
+
 
 const adminRoutes=require('./routes/admin');
 const shopRoutes=require('./routes/shop');
