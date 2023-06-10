@@ -1,10 +1,8 @@
-const mysql=require('mysql2');
+const Sequdelize=require('sequelize');
 
-const pool=mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    database: 'node-complete',
-    password:'12345'
-})
+const sequelize=new Sequdelize('node-complete','root','12345',{
+    dialect: 'mysql',
+    host: 'localhost'
+});
 
-module.exports=pool.promise();
+module.exports=sequelize;

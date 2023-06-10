@@ -12,8 +12,8 @@
             <div class="container">
                 <form action="/admin/editProduct/<%= prod.id%>" method="post" class="myform-control">
                     <div class="mb-3">
-                      <label for="name" class="form-label">Name</label>
-                      <input type="text" class="form-control" id="name" name="name" value="<%= prod.name%>">
+                      <label for="title" class="form-label">Title</label>
+                      <input type="text" class="form-control" id="title" name="title" value="<%= prod.title%>">
                     </div>
                     <div class="mb-3">
                       <label for="price" class="form-label">Price</label>
@@ -26,8 +26,8 @@
                     </div>
 
                     <div class="mb-3">
-                      <label for="imageUrl" class="form-label">Image URL</label>
-                      <input type="text" class="form-control" id="imageUrl" name="imageUrl" value="<%= prod.imageUrl%>">
+                      <label for="imageurl" class="form-label">Image URL</label>
+                      <input type="text" class="form-control" id="imageurl" name="imageurl" value="<%= prod.imageurl%>">
                     </div>
 
                     <div class="mb-3">

@@ -12,9 +12,9 @@
             <% for(prod of products){ %>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card text-center" style="cursor: pointer;">
-                    <img src="<%= prod.imageUrl %>" style="object-fit:cover;width:100%;height:300px;" alt="<%= prod.name %>">
+                    <img src="<%= prod.imageurl %>" style="object-fit:cover;width:100%;height:300px;" alt="<%= prod.title %>">
                     <div class="card-body">
-                      <h5 class="card-title"><%= prod.name %></h5>
+                      <h5 class="card-title"><%= prod.title %></h5>
                       <h5 class="card-title mb-3">Price : &#8377 <%= prod.price %></h5>
                       <a href="/admin/editProduct/<%= prod.id %>" class="btn btn-primary">Edit</a>
                       <a href="/admin/deleteProduct/<%= prod.id %>" class="btn btn-primary">Delete</a>

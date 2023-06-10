@@ -2,14 +2,15 @@ const express=require('express');
 const path=require('path');
 const bodyParser=require('body-parser');
 
-const db=require('./utils/database');
+const sequelize=require('./utils/database');
+const rootDir=require('./utils/path');
 
 
 const adminRoutes=require('./routes/admin');
 const shopRoutes=require('./routes/shop');
 const errorController=require('./controllers/error');
 
-const rootDir=require('./utils/path');
+
 
 
 
@@ -24,6 +25,12 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/admin',adminRoutes);
 app.use(shopRoutes);
-
 app.use(errorController.errorPage);
-app.listen(3300);
+
+sequelize.sync()
+.then((result)=>{
+    app.listen(3300);
+})
+.catch((err)=>{
+    console.log(err);
+})
