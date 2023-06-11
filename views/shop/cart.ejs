@@ -16,17 +16,17 @@
                 <div class="card mb-3" style="height: 70px;">
                     <div class="row g-0">
                       <div class="col-3 col-md-1">
-                        <img src="<%= prod.productDetails.imageUrl%>" class="img-fluid rounded-start" style="object-fit:cover;
+                        <img src="<%= prod.imageurl%>" class="img-fluid rounded-start" style="object-fit:cover;
                         width:auto;
-                        height:70px" alt="<%= prod.productDetails.name%>">
+                        height:70px" alt="<%= prod.title%>">
                       </div>
                       <div class="col-8 col-md-11">
                         <div class="card-body p-0">
-                          <h5 class="card-title"><%= prod.productDetails.name%></h5>
-                          Price : <%= prod.productDetails.price%>
-                          Quantity : <%= prod.qty%>
-                          <a href="/addMoreToCart/<%= prod.productDetails.id %>"><button class="my-btn" style="width: auto; border-radius: 5px; ">Add more</button></a>
-                          <a href="/deleteFromCart/<%= prod.productDetails.id %>"><button class="my-btn" style="width: auto; border-radius: 5px;">Remove</button></a>
+                          <h5 class="card-title"><%= prod.title%></h5>
+                          Price : <%= prod.price%>
+                          Quantity : <%= prod.cartItem.quantity%>
+                          <a href="/addMoreToCart/<%= prod.id %>"><button class="my-btn" style="width: auto; border-radius: 5px; ">Add more</button></a>
+                          <a href="/deleteFromCart/<%= prod.id %>"><button class="my-btn" style="width: auto; border-radius: 5px;">Remove</button></a>
                         </div>
                       </div>
                     </div>
